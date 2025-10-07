@@ -18,7 +18,7 @@ export const contactInfo = {
         }, 
            {
             url: "/", 
-            label: "13 Westglen Place Ranui, Auckland 0612", 
+            label: "13 Westglen Place, Ranui, Auckland 0612", 
             icon: { 
                 url: "/map.png", 
                 alt: "Map icon" 
