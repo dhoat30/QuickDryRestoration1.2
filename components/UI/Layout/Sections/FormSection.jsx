@@ -44,7 +44,10 @@ export default function FormSection({ title, description, usp, graphic }) {
 
           </Paper>
           <Paper className="form-wrapper  border-radius-12" variant="outlined">
-            <GetQuoteForm hideTitle={true}  /> 
+            <GetQuoteForm hideTitle={true} 
+            hubspotPortalId={process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}
+            hubspotFormId={process.env.NEXT_PUBLIC_HUBSPOT_QUOTE_FORM_ID}
+            /> 
           </Paper>
         </div>
       </Container>

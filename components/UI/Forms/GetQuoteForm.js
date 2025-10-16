@@ -17,7 +17,7 @@ import { useRouter } from 'next/navigation';
 import Typography from "@mui/material/Typography";
 import GoogleMapsLoader from "@/components/GoogleMaps/GoogleMapsLoader";
 import GoogleAutocomplete from "@/components/GoogleMaps/GoogleAutoComplete";
-export default function GetQuoteForm({ className, formName = "Get a Quote Form", title = "Please fill out a form", hideTitle=false }) {
+export default function GetQuoteForm({ className, formName = "Get a Quote Form", title = "Please fill out a form", hideTitle=false, hubspotPortalId, hubspotFormId }) {
     const router = useRouter();
 
     const [formData, setFormData] = useState({
@@ -29,6 +29,8 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
         service: [],
         message: ''
     });
+
+    console.log(hubspotFormId, hubspotPortalId);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -89,8 +91,8 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
           email: formData.email,
           formName: formName,
           message: `First Name: ${formData.firstname} \nEmail: ${formData.email} \nPhone Number: ${formData.phone} \n Address: ${formData.address} \nProperty Type: ${formData.propertyType} \nServices Required: ${formData['service'].join(", ")}  \n Message: ${formData.message} `,
-          portalID: "242173856",
-          hubspotFormID: "edd8d725-9d11-485b-af11-1f974c89116a",
+          portalID: hubspotFormId,
+          hubspotFormID: hubspotPortalId,
           hubspotFormObject: [
               { name: "firstname", value: formData.firstname },
               { name: "email", value: formData.email },
