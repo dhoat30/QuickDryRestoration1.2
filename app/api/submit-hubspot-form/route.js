@@ -5,7 +5,6 @@ const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
 export async function POST(req, res) {
     const { hubspotFormObject, hubspotFormID, portalID } = await req.json();
 
-
     var payload = JSON.stringify({
         "submittedAt": new Date().getTime(),
         "fields": hubspotFormObject,
@@ -39,6 +38,7 @@ export async function POST(req, res) {
     try {
         // submit form
         let response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalID}/${hubspotFormID}`, postOptions)
+       
         response = await response.json();
 
         return NextResponse.json({ message: "This Worked", success: true, data: response });

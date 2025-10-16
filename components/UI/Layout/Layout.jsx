@@ -15,7 +15,6 @@ import OurWorkSection from "./Sections/OurWorkSection";
 import GradientTabs from "./Sections/GradientTabs";
 import DealsSection from "./Sections/DealsSection";
 export default function Layout({ sections, projectsData }) {
-    console.log("sections", sections);
 
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {

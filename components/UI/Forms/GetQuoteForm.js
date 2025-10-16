@@ -30,7 +30,6 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
         message: ''
     });
 
-    console.log(hubspotFormId, hubspotPortalId);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -39,7 +38,6 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
     const [mapsLoaded, setMapsLoaded] = useState(false);
 
     const handleChange = (id, value, isSelectMultiple) => {
-        console.log(value);
         let newValue = value.target ? value.target.value : value;
 
         setFormData((prevFormData) => ({
@@ -91,8 +89,8 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
           email: formData.email,
           formName: formName,
           message: `First Name: ${formData.firstname} \nEmail: ${formData.email} \nPhone Number: ${formData.phone} \n Address: ${formData.address} \nProperty Type: ${formData.propertyType} \nServices Required: ${formData['service'].join(", ")}  \n Message: ${formData.message} `,
-          portalID: hubspotFormId,
-          hubspotFormID: hubspotPortalId,
+          portalID: `${hubspotPortalId}`,
+          hubspotFormID: `${hubspotFormId}`,
           hubspotFormObject: [
               { name: "firstname", value: formData.firstname },
               { name: "email", value: formData.email },
@@ -141,7 +139,6 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
 
         Promise.all([axios(configHubspot), axios(configSendMail)])
             .then(function (response) {
-                console.log(response);
                 if (response[0].status === 200) {
                     setIsLoading(false);
                     setIsSuccess(true);
