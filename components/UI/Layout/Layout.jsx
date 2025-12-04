@@ -29,12 +29,12 @@ export default function Layout({ sections, projectsData }) {
         />
       )
     }
-    if(section.acf_fc_layout === "deals_"){
-      return <DealsSection key={index} 
-      title={section.title} 
-      graphicsArray={section.deal_graphics} 
-      link={"/#quote-form"} />
-    } 
+    // if(section.acf_fc_layout === "deals_"){
+    //   return <DealsSection key={index} 
+    //   title={section.title} 
+    //   graphicsArray={section.deal_graphics} 
+    //   link={"/#quote-form"} />
+    // } 
  
     if (section.acf_fc_layout === "zigzag_cards") {
       return (
