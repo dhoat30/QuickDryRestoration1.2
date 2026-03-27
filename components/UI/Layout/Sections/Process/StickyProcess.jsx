@@ -69,9 +69,8 @@ export default function StickyProcess({ title, description, cards }) {
       <Section as={motion.section}>
         <Container maxWidth="lg" className="container">
           <div className="title-wrapper">
-            <Typography variant="h3" component="h2" className="title">
-              {title}
-            </Typography>
+            <Typography variant="h3" component="h2" className="title"   dangerouslySetInnerHTML={{ __html: title }} />
+            
             <div
               className="description body1"
               dangerouslySetInnerHTML={{ __html: description }}
